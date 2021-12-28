@@ -1,0 +1,72 @@
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity>0.5.0<0.9.0;
+
+
+/*
+task description: three party will contest election and only one party will. 
+Final result wuill declare after all n members voted.
+*/
+
+
+contract evoting
+{
+    //variables
+    string   bjp;
+    string congress;
+    string left;
+    uint public CountBjp=0;
+    uint public CountCong=0;
+    uintpublic CountLeft=0;
+    mapping(address=>bool)  public voters;
+    uint public totalVoters=0;
+    bool deadline=false;
+
+    function voterRegistration(address voterId) public
+    {
+        require(deadline=false);
+        require(votedId>0 && voters[votreId]!=true);
+        voters[votedId]=true;
+    }
+
+    function  VotingdayStart() public returns(bool)
+    {
+        deadline=true;
+        return "deadline passed vo more political activities";
+    }
+
+    function voting(address voterName, string memory party) public
+    {
+        require(voters[votreId]==true  && deadline==true);
+        voters[voterName]=false;
+        if (party=="bjp")
+        {CountBjp++1;}
+        if (party=="congress")
+        {CountCong++1;}
+        if (party=="left")
+        {CountLeft++1;}
+        totalVoters+=1;
+    }
+
+
+    function winner() view public returns(string)
+    {
+        uint  max=0;
+        string memory party;
+        if(CountCong>max)
+        {
+            max=CountCong;
+            party= congress;
+        }
+         if(CountBjp>max)
+        {
+            max=CountBjp;
+            party= bjp;
+        }
+        if(CountLeft>max)
+        {
+            max=CountLeft;
+            party= left;
+        }
+        return("winner is"+part);
+    }
+}
